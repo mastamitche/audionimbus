@@ -109,7 +109,7 @@ impl<C: SimulationConfiguration> Default for SourceParameters<C> {
 
 /// Adds a `Source` to the simulator and requests a commit when it is spawned.
 pub fn on_source_added<C: SimulationConfiguration>(
-    event: On<Add, Source<C>>,
+    event: On<Add<Source<C>>>,
     query: Query<&Source<C>>,
     mut simulation: ResMut<Simulation<C>>,
 ) where
@@ -125,7 +125,7 @@ pub fn on_source_added<C: SimulationConfiguration>(
 
 /// Removes a `Source` from the simulator and requests a commit when it is removed.
 pub fn on_source_removed<C: SimulationConfiguration>(
-    event: On<Remove, Source<C>>,
+    event: On<Remove<Source<C>>>,
     query: Query<&Source<C>>,
     mut simulation: ResMut<Simulation<C>>,
 ) where
@@ -157,7 +157,7 @@ pub struct Listener;
 /// When `Listener` is added to an entity, this observer removes it from any other entity
 /// currently holding it, making the new entity the active listener.
 pub(crate) fn on_listener_added(
-    event: On<Add, Listener>,
+    event: On<Add<Listener>>,
     listeners: Query<Entity, With<Listener>>,
     mut commands: Commands,
 ) {

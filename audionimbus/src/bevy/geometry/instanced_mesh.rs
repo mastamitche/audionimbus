@@ -146,7 +146,7 @@ fn try_register_instanced_mesh<C: SimulationConfiguration>(
 
 /// Deregisters the instanced mesh when [`InstancedMesh`] is removed or the entity is despawned.
 pub(crate) fn on_instanced_mesh_removed<C: SimulationConfiguration>(
-    event: On<Remove, InstancedMesh>,
+    event: On<Remove<InstancedMesh>>,
     handles: Query<&SpawnedInstancedMesh>,
     mut scenes: Query<(&mut Scene<C>, &mut SceneStatus)>,
 ) {

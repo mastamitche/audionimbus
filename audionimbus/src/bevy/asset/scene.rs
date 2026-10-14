@@ -206,7 +206,7 @@ pub(crate) fn sync_scenes_from_assets<C: SimulationConfiguration>(
                 commands.entity(entity).insert(Scene::<C>(inner_scene));
 
                 if had_main_scene {
-                    // Explicit remove guarantees `On<Add, MainScene>` fires.
+                    // Explicit remove guarantees `On<Add<MainScene>>` fires.
                     commands
                         .entity(entity)
                         .remove::<MainScene>()

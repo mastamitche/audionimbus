@@ -193,7 +193,7 @@ fn try_register_static_mesh<C: SimulationConfiguration>(
 
 /// Deregisters the static mesh when [`StaticMesh`] is removed or the entity is despawned.
 pub(crate) fn on_static_mesh_removed<C: SimulationConfiguration>(
-    event: On<Remove, StaticMesh>,
+    event: On<Remove<StaticMesh>>,
     handles: Query<&SpawnedStaticMesh>,
     mut scenes: Query<(&mut Scene<C>, &mut SceneStatus)>,
 ) {

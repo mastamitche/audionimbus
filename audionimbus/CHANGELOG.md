@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.0] - 2026-10-15
+
+### Changed
+
+- Upgrade the Bevy integration to Bevy 0.20. Observers now take `On<Add<T>>` and `On<Remove<T>>`.
+- The Bevy demo stays on the published 0.16 release and Bevy 0.19, because `bevy_seedling` 0.8 does not support Bevy 0.20.
+
 ## [0.16.0] - 2026-08-08
 
 ### Changed

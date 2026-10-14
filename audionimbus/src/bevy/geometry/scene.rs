@@ -382,7 +382,7 @@ pub(crate) fn warn_missing_main_scene<C: SimulationConfiguration>(
 /// currently holding it, ensuring the simulator always has exactly one active scene.
 /// The newly marked scene is then set on the simulator and a commit is requested.
 pub(crate) fn on_main_scene_added<C: SimulationConfiguration>(
-    event: On<Add, MainScene>,
+    event: On<Add<MainScene>>,
     main_scenes: Query<Entity, With<MainScene>>,
     mut commands: Commands,
     mut simulation: ResMut<Simulation<C>>,
@@ -402,7 +402,7 @@ pub(crate) fn on_main_scene_added<C: SimulationConfiguration>(
 
 /// Clears any object referencing a removed [`Scene`].
 pub(crate) fn on_scene_removed<C: SimulationConfiguration>(
-    event: On<Remove, Scene<C>>,
+    event: On<Remove<Scene<C>>>,
     static_meshes: Query<(Entity, &SpawnedStaticMesh)>,
     instanced_meshes: Query<(Entity, &InstancedMesh, Option<&SpawnedInstancedMesh>)>,
     mut scenes: Query<(&mut Scene<C>, &mut SceneStatus)>,
